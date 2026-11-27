@@ -2,19 +2,198 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>OH MY DOG</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Organiza las citas de estética canina con Oh My Dog.">
+  <title>Oh My Dog | Estética canina</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #352a25;
+      --muted: #68574d;
+      --brand: #8d4e35;
+      --brand-dark: #713c29;
+      --cream: #fffaf4;
+      --peach: #f7e8d8;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--cream);
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.65;
+    }
+
+    .site-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      padding: 1rem max(1.5rem, calc((100% - 1120px) / 2));
+      background: var(--white);
+      box-shadow: 0 2px 14px rgb(53 42 37 / 8%);
+    }
+
+    .site-header h1 {
+      margin: 0;
+      color: var(--brand);
+      font-size: 1.5rem;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+    }
+
+    nav a {
+      color: var(--ink);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    nav a:hover,
+    nav a:focus-visible {
+      color: var(--brand);
+      text-decoration: underline;
+    }
+
+    main {
+      width: min(100% - 3rem, 1120px);
+      margin: 0 auto;
+    }
+
+    .hero {
+      margin: 3rem 0;
+      padding: clamp(2rem, 6vw, 5rem);
+      border-radius: 28px;
+      background: linear-gradient(125deg, var(--peach), #fff3e7);
+    }
+
+    .hero article {
+      max-width: 700px;
+    }
+
+    .hero h2 {
+      margin: 0 0 1rem;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      line-height: 1.15;
+    }
+
+    .hero p,
+    .benefits > p {
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 0.75rem;
+      padding: 0.8rem 1.35rem;
+      border-radius: 999px;
+      background: var(--brand);
+      color: var(--white);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      background: var(--brand-dark);
+    }
+
+    .benefits {
+      padding: 1rem 0 3rem;
+    }
+
+    .benefits h2,
+    .contact h2 {
+      font-size: clamp(1.7rem, 3vw, 2.25rem);
+    }
+
+    .benefits-list {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      padding: 0;
+      list-style: none;
+    }
+
+    .benefits-list li {
+      padding: 1.25rem;
+      border: 1px solid #ead8c8;
+      border-radius: 16px;
+      background: var(--white);
+    }
+
+    .promo-banner {
+      margin: 2rem 0 0;
+    }
+
+    .promo-banner svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 24px;
+    }
+
+    .promo-banner figcaption {
+      margin-top: 0.5rem;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .contact {
+      padding: 2rem max(1.5rem, calc((100% - 1120px) / 2));
+      background: #352a25;
+      color: var(--white);
+    }
+
+    .contact h2 {
+      margin-top: 0;
+    }
+
+    .contact a {
+      color: #ffd5b5;
+    }
+
+    .contact p {
+      margin: 0.35rem 0;
+    }
+
+    @media (max-width: 700px) {
+      .site-header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .benefits-list {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>Estetica canina Oh my dog</h1>
+  <header class="site-header">
+    <h1>Oh My Dog</h1>
+    <nav aria-label="Navegación principal">
+      <a href="#inicio">Inicio</a>
+      <a href="#beneficios">Beneficios</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
   </header>
 
-  <nav>
-    <!-- Navegación -->
-  </nav>
-
   <main>
-    <section>
+    <section class="hero" id="inicio">
       <article>
         <h2>El cuidado que merece, con una cita a su medida</h2>
         <p>
@@ -23,17 +202,18 @@
           y dedica más tiempo a consentirla.
         </p>
         <p>¡Conoce Oh My Dog y agenda la próxima visita de tu mejor amigo!</p>
+        <a class="button" href="#contacto">Comienza ahora</a>
       </article>
     </section>
 
-    <section>
+    <section class="benefits" id="beneficios">
       <h2>Más tiempo para consentirlo</h2>
       <p>
         Encontrar y organizar una cita de estética canina puede ser más fácil.
         Oh My Dog reúne la información necesaria para que planifiques el cuidado
         de tu mascota sin complicaciones.
       </p>
-      <ul>
+      <ul class="benefits-list">
         <li><strong>Agenda organizada:</strong> consulta y gestiona las citas de forma sencilla.</li>
         <li><strong>Cuidado a tu medida:</strong> elige el servicio que mejor se adapte a tu mascota.</li>
         <li><strong>Más comodidad:</strong> ahorra tiempo al tener la información de tu visita en un solo lugar.</li>
@@ -60,12 +240,12 @@
     </section>
   </main>
 
-  <aside>
-    <!-- Información complementaria -->
-  </aside>
-
-  <footer>
-    <!-- Pie de página -->
+  <footer class="contact" id="contacto">
+    <h2>Estamos para ayudarte</h2>
+    <p>Información de contacto ficticia para esta demostración:</p>
+    <p><strong>Correo:</strong> <a href="mailto:hola@ohmydog.example">hola@ohmydog.example</a></p>
+    <p><strong>Teléfono:</strong> +52 55 1234 5678</p>
+    <p><strong>Dirección:</strong> Av. de las Mascotas 123, Ciudad de México</p>
   </footer>
 </body>
 </html>
